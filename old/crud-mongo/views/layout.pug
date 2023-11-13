@@ -1,0 +1,10 @@
+html
+  head
+    link(rel="stylesheet", href="/main.css")
+    title #{title}
+  body
+    include ../views/partials/navbar
+    .message
+      != messages('message', locals)
+    block content
+    script(src="script.js")
