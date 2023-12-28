@@ -1,0 +1,11 @@
+errors--------------------------------------------------
+connection failed = sudo rm /tmp/mongodb-27017.sock
+sudo service mongod restart
+or
+sudo lsof -i -P -n | grep 27017
+sudo kill pd
+
+pgrep mongo
+sudo kill pid
+
+

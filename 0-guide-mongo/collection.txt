@@ -1,0 +1,25 @@
+collections--------------------------------------------------------
+show collections;
+db.createCollection('users');
+db.users.drop();
+db.users.createIndex({name:1})
+db.users.getIndexes()
+db.collection.dropIndexes()
+db.collection.dropIndexe({name:1})
+
+db.users.insertOne({name:'test1',pass:'123'})
+db.users.insertOne({name:'test1',pass:'123',language:['Javascript','Mongodb']})
+
+db.users.insertMany([
+  {name:'test1',pass:'123'},
+  {name:'test2',pass:'123'}
+])
+db.users.insertMany([
+  {name:'test1',pass:'123',language:['Javascript','Mongodb']},
+  {name:'test2',pass:'123',language:['Pyhton','Mysql']}
+])
+
+db.users.deleteOne({name:'test1'});
+db.users.deleteMany({salery:3000});
+db.users.updateOne({name:"Deniz"},{$pull:{language: 'Javascript'}})//delete array
+

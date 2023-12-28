@@ -1,0 +1,5 @@
+uninstall----------------------------------------------------------------------------
+sudo apt-get purge mongodb-org*
+sudo apt-get autoremove
+sudo rm -r /var/log/mongodb
+sudo rm -r /var/lib/mongodb

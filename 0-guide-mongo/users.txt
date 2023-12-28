@@ -1,0 +1,88 @@
+to give root role---------------------------------------------
+mongosh -> 
+use admin //root role must take admin database
+db.createUser(
+  {
+    user: 'username',
+    pwd:  'password',
+    roles: [{role:"root", db:"admin"}]
+	
+  }
+)
+to superadmin role--------------------------------
+mongosh -> 
+use admin
+db.createUser(
+  {
+    user: 'Boss',
+    pwd:  'MK1972mk11130113@',
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" }, 'readWriteAnyDatabase'] 
+  }
+)
+for different database -----------------------------------------------------------
+mongosh
+use dbName
+db.createUser(
+  {
+    user: 'mesto',
+    pwd:  'MK1972mk11130113@',
+    roles: [{role:"readWrite", db:"bet"}]
+	
+  }
+)
+
+update user-----------------------------------------------------------
+use dbName
+db.updateUser('username',{
+    pwd: '123'
+	
+  }
+)
+
+update user for multiple database and role-------------------------------
+use dbName
+db.updateUser('username',{
+    roles: [
+    	{role:"readWrite", db:"bet"},
+    	{role:"readWrite", db:"crud"}
+    ]
+	
+  }
+)
+
+auth-------------------------------------------------------------
+
+after created user close mongosh and 
+open -> sudo nano /etc/mongod.conf
+remove # for both lines second line must have tab
+security:
+  authorization: enabled
+  
+sudo systemctl restart mongod
+
+than
+mongosh -u 'username' -p 'password' --authenticationDatabase admin
+
+or in mongosh to login use this 
+db.auth('username','password')
+db.changeUserPassword('username','newpassword')
+finished
+
+delete user-------------------------------------------------------------------
+use dbName
+db.dropUser('username')
+------------------------------------------------
+
+
+in nodejs-------------------------------------------------
+const mongoose = require('mongoose')
+
+const db = mongoose.connect('mongodb://username:password@localhost:27017/dbName?authSource=dbName',{
+  useNewUrlParser:true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log('Connected')
+}).catch((err) => {console.log(err)})
+
+module.exports = db
+

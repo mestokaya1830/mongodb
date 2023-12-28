@@ -1,0 +1,6 @@
+
+database----------------------------------------------------------
+show databases;
+use dbname;
+dbname.dropDatabase;
+dbname.stats();

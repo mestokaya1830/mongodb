@@ -1,0 +1,7 @@
+//monitoring------------------------------------------------------------
+mongotop //track spend time
+mongostat // track queries
+sudo mongosh -u user -p
+db.serverStatus()
+db.serverStatus().mem
+
