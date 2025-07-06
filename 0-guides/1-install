@@ -1,0 +1,20 @@
+👉️INSTALL
+go to mongodb website
+
+👉️Error
+mongodb error MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017
+sudo rm -rf /tmp/mongodb-27017.sock
+sudo lsof -i -P -n | grep 27017
+sudo kill pd
+
+pgrep mongo
+sudo kill pid
+
+👉️UNINSTALL
+sudo apt-get purge mongodb-org*
+sudo apt-get autoremove
+sudo rm -r /var/log/mongodb
+sudo rm -r /var/lib/mongodb
+
+
+

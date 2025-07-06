@@ -1,0 +1,52 @@
+
+mongosh then
+👉️CREATE DATABASE
+use dbname
+
+👉️SHOW DATABASE
+show dbs;
+
+👉️DROP DATABASE
+use dbname
+db.dropDatabase();
+
+👉️DATABASE INFO
+use dbname
+db.stats();
+
+
+
+👉️ BACKUP ALL DB NEED EXTRA ROLE
+ mongodump --verbose --out backupname --authenticationDatabase admin --username 'user' --password 'password'
+
+
+👉️ BACKUP SINGLE DB
+ mongodump --db=gasvet --out backupname --authenticationDatabase admin --username 'user' --password 'password'
+  
+  
+👉️ BACKUP COLLECTION
+ mongodump --db=gasvet --collection users --out usersdump -authenticationDatabase admin --username 'user' --password 'password'
+ 
+ 
+👉️ BACKUP EXCLUDE COLLECTION
+ mongodump --db=gasvet --excludeCollection=users --out excludeusersdump -authenticationDatabase admin --username 'user' --password 'password'
+
+
+
+👉️ IMPORT JSON FILE
+ mongoimport --db bet --collection soccerlivemarkets --file soccerlivemarkets.json --jsonArray
+
+
+👉️ RESTORE ALL DB
+ mongorestore --verbose ./dump --authenticationDatabase admin --username 'user' --password 'password'
+   
+   
+👉️ RESTORE ONLY ONE DB
+ mongorestore -d blog ./db-blog --drop --authenticationDatabase admin --username 'mesto' --password 'mk1972mk'
+ 
+   
+👉️ RESTORE SINGLE COLLECTION
+ mongorestore -d dbname --collection users ./dbname --authenticationDatabase admin --username 'user' --password --drop
+  
+
+
